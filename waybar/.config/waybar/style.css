@@ -60,7 +60,8 @@ tooltip {
 #workspaces,
 #tray,
 #backlight,
-#cpu{
+#cpu,
+#custom-cpug{
     background: #1e1e2e;
     opacity: 0.8;
     padding: 0px 10px;
