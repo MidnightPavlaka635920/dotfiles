@@ -6,9 +6,9 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 50,
-    "modules-left": ["clock","custom/weather","wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "bluetooth", "temperature","custom/power_profile","battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window", "clock"],
+    "modules-right": ["network", "bluetooth","temperature","cpu","battery","backlight","pulseaudio"],
     "hyprland/window": {
         "format": "{}"
     },
@@ -55,8 +55,9 @@
     },
 
     "clock": {
-        "format": "{: %I:%M %p   %a, %b %e}",
+        "format": "{:%H:%M   %a, %b %e}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+//          "format": "{:%H:%M}"
     },
 
     "backlight": {
@@ -112,9 +113,9 @@
     
     "temperature": {
         "thermal-zone": 1,
-        "format": "{temperatureF}°F ",
+        "format": "{temperatureC}°C ",
         "critical-threshold": 80,
-        "format-critical": "{temperatureC}°C "
+        "format-critical": "{temperatureF}°F "
     },
 
     "network": {
@@ -134,5 +135,6 @@
 	    "tooltip-format": "{device_alias}",
 	    "tooltip-format-connected": " {device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}"
-    }
+    },
+    "cpu":{"interval":1}
 }
