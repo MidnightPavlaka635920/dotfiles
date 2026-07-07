@@ -153,3 +153,13 @@ tooltip {
     border-right: 0px;
     margin-left: 0px;
 }
+tooltip {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
