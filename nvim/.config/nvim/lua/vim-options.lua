@@ -13,3 +13,4 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<cr>")
 --vim.cmd.colorscheme "catppuccin-nvim"
+
