@@ -248,6 +248,3 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.5;
 }
-configuration {
-    run-command: "/home/pavleb/.local/bin/gio {cmd}";
-}
