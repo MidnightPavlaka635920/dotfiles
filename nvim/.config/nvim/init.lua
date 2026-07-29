@@ -54,3 +54,17 @@ require("rainbow-delimiters.setup")({
     "RainbowDelimiter3",
   },
 })
+vim.lsp.config("jdtls", {
+    cmd = {
+        "jdtls",
+        "-data",
+        vim.fn.stdpath("cache") .. "/jdtls-workspace",
+    },
+    root_markers = {
+        "pom.xml",
+        "build.gradle",
+        ".git",
+    },
+})
+
+vim.lsp.enable("jdtls")

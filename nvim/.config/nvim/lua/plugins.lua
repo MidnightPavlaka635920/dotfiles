@@ -17,19 +17,29 @@ return {
   build = ":TSUpdate",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local ok, ts = pcall(require, "nvim-treesitter.configs")
-    if not ok then return end
-
-    ts.setup({
-      highlight = {
-        enable = true,
+    require("nvim-treesitter").setup({
+      ensure_installed = {
+        "c",
+        "cpp",
+        "lua",
+        "java",
       },
-      ensure_installed = { "c", "cpp", "lua" },
       auto_install = true,
     })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "c",
+        "cpp",
+        "lua",
+        "java",
+      },
+      callback = function()
+        vim.treesitter.start()
+      end,
+    })
   end,
-},
-{
+},{
   "neovim/nvim-lspconfig",
   config = function()
     vim.lsp.config("clangd", {
