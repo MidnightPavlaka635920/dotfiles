@@ -1,12 +1,11 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans Symbols 2";
     font-weight: bold;
     font-size: 16px;
     min-height: 0;
 }
-
 window#waybar {
     background: rgba(21, 18, 27, 0);
     color: #cdd6f4;
@@ -102,16 +101,20 @@ tooltip {
 }
 
 #window {
+    font-family: "JetBrainsMono Nerd Font", "Noto Emoji";
+    font-family: "DejaVu Sans";
     border-radius: 10px;
     margin-left: 60px;
     margin-right: 60px;
+    min-height: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
-
 #clock {
     color: #fab387;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
     margin-left: 10px;
-    border-right: 0px;
+    border-right: 10px;
 }
 
 #network {
