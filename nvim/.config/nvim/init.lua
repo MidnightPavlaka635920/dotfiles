@@ -21,7 +21,7 @@ require("nvim-tree").setup()
 require("catppuccin").setup()
 --vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp" },
+  pattern = { "c", "cpp" ,"python"},
   callback = function()
     vim.treesitter.start()
   end,
@@ -66,5 +66,32 @@ vim.lsp.config("jdtls", {
         ".git",
     },
 })
-
+vim.lsp.config("pyright", {})
+vim.lsp.enable("pyright")
 vim.lsp.enable("jdtls")
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "gp", function()
+    vim.lsp.buf_request(0, "textDocument/definition",
+        vim.lsp.util.make_position_params(0, "utf-8"),
+        function(err, result)
+            if err or not result or vim.tbl_isempty(result) then
+                return
+            end
+
+            vim.lsp.util.preview_location(result[1])
+        end
+    )
+end)
+--telescope
+-- Telescope text
+hl(0, "TelescopeResultsNormal", { fg = "#ABB2BF", bg = "#282c34" })
+hl(0, "TelescopePromptNormal",  { fg = "#ABB2BF", bg = "#21252b" })
+hl(0, "TelescopePreviewNormal", { fg = "#ABB2BF", bg = "#282c34" })
+
+-- Selected item
+hl(0, "TelescopeSelection", { fg = "#FFFFFF", bg = "#3E4451" })
+
+-- Matching characters
+hl(0, "TelescopeMatching", { fg = "#61AFEF", bold = true })
+
